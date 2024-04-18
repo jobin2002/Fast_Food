@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled4/home%20widgets/Category_Navigation/Burger.dart';
 
 class txtbtn extends StatelessWidget {
@@ -9,13 +10,13 @@ class txtbtn extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             "Burger",
-            style: TextStyle(
-              color: Colors.white,
+            style: GoogleFonts.sourceSans3(
               fontSize: 15,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -24,8 +25,11 @@ class txtbtn extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Burgerpage(),));
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Burgerpage(),
+                    ));
               },
               child: const Text("See All")),
         )

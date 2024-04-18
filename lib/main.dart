@@ -1,9 +1,31 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:slide_to_act/slide_to_act.dart';
-import 'package:untitled4/home.dart';
+import 'package:untitled4/home%20widgets/firstscreen.dart';
 
-void main() {
-  runApp(MaterialApp(home: Myapp(), debugShowCheckedModeBanner: false));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: 'AIzaSyAUBigNIq6HFoIQfUvZpl0T-4LnVDu_kFc',
+          appId: '1:485196800024:android:fdd64ee38a01cec5bce36d',
+          messagingSenderId: '485196800024',
+          projectId: 'mainproject-f777c',
+          storageBucket: 'mainproject-f777c.appspot.com'));
+  AwesomeNotifications().initialize(
+      null,
+      [
+        NotificationChannel(
+          channelKey: 'basic_notification',
+          channelName: 'Tastees',
+          channelDescription: 'notification Settings',
+          importance: NotificationImportance.Max,
+          playSound: true,
+          enableVibration: true,
+        )
+      ],
+      debug: true);
+  runApp(const Myapp2());
 }
 
 class Myapp extends StatelessWidget {
@@ -11,68 +33,18 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(20.0),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Image(
-                image: AssetImage(
-                  'assets/images/png1.png',
-                ),
-                height: 450,
-                fit: BoxFit.fill,
-              ),
-              Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    "Cooking ",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 50,
-                        height: 1,
-                        wordSpacing: 2),
-                  )),
-              Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text("Delicious like a",
-                      style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 40,
-                          height: 1.5,
-                          wordSpacing: 1))),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Text("Chef",
-                    style: TextStyle(
-                        color: Colors.white60,
-                        fontSize: 30,
-                        wordSpacing: 1,
-                        height: 1.3)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 50),
-                  child: SlideAction(
-                      onSubmit: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => home()));
-                      },
-                      innerColor: Colors.black,
-                      outerColor: Colors.white,
-                      child:
-                      Text("Get Started", style: TextStyle(fontSize: 23)),
-                      sliderButtonIcon: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      )),
-              )
-            ]),
-          ),
-        ),
-      ),
+    return const frontscrn();
+  }
+}
+
+class Myapp2 extends StatelessWidget {
+  const Myapp2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Myapp(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

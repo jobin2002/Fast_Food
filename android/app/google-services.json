@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485196800024",
+    "project_id": "mainproject-f777c",
+    "storage_bucket": "mainproject-f777c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485196800024:android:fdd64ee38a01cec5bce36d",
+        "android_client_info": {
+          "package_name": "com.example.untitled4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUBigNIq6HFoIQfUvZpl0T-4LnVDu_kFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

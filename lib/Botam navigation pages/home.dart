@@ -1,13 +1,10 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled4/Botam%20navigation%20pages/explore.dart';
-import 'package:untitled4/Botam%20navigation%20pages/profile.dart';
 import 'package:untitled4/home%20widgets/topcontnt.dart';
 import 'package:untitled4/home%20widgets/cardview.dart';
 import 'package:untitled4/home%20widgets/gridview.dart';
 import 'package:untitled4/home%20widgets/banner.dart';
 import 'package:untitled4/home%20widgets/seealltxt.dart';
-
-
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -17,42 +14,31 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  @override
+  void initState() {
+    Future.delayed(
+      const Duration(seconds: 9),
+      () {
+        requestNotificationPermissions();
+      },
+    );
+    super.initState();
+  }
+
+  void requestNotificationPermissions() async {
+    bool isAllowed = await AwesomeNotifications().isNotificationAllowed();
+    if (!isAllowed) {
+      await AwesomeNotifications().requestPermissionToSendNotifications();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // int _currentindex = 0;
-
     return Scaffold(
-      // bottomNavigationBar: Theme(
-      //     data: Theme.of(context).copyWith(canvasColor: Colors.grey),
-      //     child: BottomNavigationBar(
-      //         unselectedItemColor: Colors.black,
-      //         selectedItemColor: Colors.white,
-      //         currentIndex: _currentindex,
-      //         onTap: (int newindex) {
-      //           setState(() {
-      //             _currentindex = newindex;
-      //             // if(newindex==3){
-      //             //   Navigator.push(context, MaterialPageRoute(builder: (context) => Profilepage(),));
-      //             // }else if(newindex==1){
-      //             //   Navigator.push(context, MaterialPageRoute(builder: (context) => Explorepage(),));
-      //             // }
-      //             Screens[_currentindex];
-      //           });
-      //         },
-      //         items: const [
-      //           BottomNavigationBarItem(
-      //               icon: Icon(Icons.home), label: "Home"),
-      //           BottomNavigationBarItem(
-      //               icon: Icon(Icons.explore), label: "Explore"),
-      //           BottomNavigationBarItem(
-      //               icon: Icon(Icons.shopping_cart), label: "Cart"),
-      //           BottomNavigationBarItem(
-      //               icon: Icon(Icons.person), label: "Profile"),
-      //         ])),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Padding(
-          padding: EdgeInsets.only(right: 45),
+          padding: EdgeInsets.all(8.0),
           child: Center(
               child: Text(
             "Tastee Meals",

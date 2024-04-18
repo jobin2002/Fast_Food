@@ -26,7 +26,7 @@ List labele = [
   "Chicken",
   "Salad",
   "Bubble Tea",
-  "Vegetable"
+  "Pickle"
 ];
 
 class gridview extends StatelessWidget {
@@ -45,25 +45,64 @@ class gridview extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-            switch(index){
-              case 0:Navigator.push(context, MaterialPageRoute(builder: (context) => Burgerpage(),));
-              break;
-              case 1:Navigator.push(context, MaterialPageRoute(builder: (context) => Pizzapage(),));
-              break;
-              case 2:Navigator.push(context, MaterialPageRoute(builder: (context) => Coffeepage(),));
-              break;
-              case 3:Navigator.push(context, MaterialPageRoute(builder: (context) => Ricepage(),));
-              break;
-              case 4:Navigator.push(context, MaterialPageRoute(builder: (context) => Chickenpage(),));
-              break;
-              case 5:Navigator.push(context, MaterialPageRoute(builder: (context) => Saladpage(),));
-              break;
-              case 6:Navigator.push(context, MaterialPageRoute(builder: (context) => Bubblepage(),));
-              break;
-              case 7:Navigator.push(context, MaterialPageRoute(builder: (context) => Vegpage(),));
-              break;
-
-            }
+              switch (index) {
+                case 0:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Burgerpage(),
+                      ));
+                  break;
+                case 1:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Pizzapage(),
+                      ));
+                  break;
+                case 2:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Coffeepage(),
+                      ));
+                  break;
+                case 3:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Ricepage(),
+                      ));
+                  break;
+                case 4:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Chickenpage(),
+                      ));
+                  break;
+                case 5:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Saladpage(),
+                      ));
+                  break;
+                case 6:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Bubblepage(),
+                      ));
+                  break;
+                case 7:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Vegpage(),
+                      ));
+                  break;
+              }
             },
             child: Container(
               decoration: BoxDecoration(
